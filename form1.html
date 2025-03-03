@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <style>
+        form {
+            font-family: Arial, sans-serif;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>用户注册</h2>
+    <form action="#">
+        <label for="username">用户名称:</label>
+        <input type="text" id="username" value="zhangsan" /><br />
+
+        <label for="password">用户密码:</label>
+        <input type="password" id="password" /><br />
+
+        <label for="gender">用户性别:</label>
+        <input type="radio" id="male" name="gender" value="男" checked />
+        <label for="male">男</label>
+        <input type="radio" id="female" name="gender" value="女" />
+        <label for="female">女</label><br />
+
+        <label for="hobbies">爱好:</label><br />
+        <input type="checkbox" id="football" name="hobbies" value="足球" />
+        <label for="football">足球</label>
+        <input type="checkbox" id="basketball" name="hobbies" value="篮球" />
+        <label for="basketball">篮球</label>
+        <input type="checkbox" id="lol" name="hobbies" value="LOL" />
+        <label for="lol">LOL</label>
+        <input type="checkbox" id="kdrama" name="hobbies" value="韩剧" />
+        <label for="kdrama">韩剧</label>
+        <input type="checkbox" id="honor" name="hobbies" value="王者荣耀" />
+        <label for="honor">王者荣耀</label><br />
+
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" placeholder="请输入您的邮箱" /><br />
+
+        <label for="avatar">用户头像:</label>
+        <input type="file" id="avatar" /><br />
+
+        <label for="address">您的家庭住址是:</label>
+        <select id="address">
+            <option value="陕西">陕西</option>
+            <!-- 可添加更多选项 -->
+        </select><br />
+
+        <label for="suggestion">您的建议或者意见</label><br />
+        <textarea id="suggestion" rows="4" cols="30"></textarea><br />
+    </form>
+</body>
+
+</html>
