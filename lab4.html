@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+   
+        .cube-container {
+            position: relative;
+            margin: 100px;
+        }
+
+        
+        #a {
+            background-color: red;
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: -50px;
+            left: 0;
+            transform: skewY(-65deg) scaleY(1.15) translate(0, 100px);
+        }
+       
+        #b {
+            background-color: yellow;
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            left: 100;
+            transform: skewY(90deg);
+        }
+
+        
+        #c {
+            background-color: green;
+            width: 115px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            left: 200px;
+            transform: skewX(30deg) scaleX(0.87);
+        }
+    </style>
+   
+    <div class="cube-container">
+        <div id="a"></div>
+        <div id="b"></div>
+        <div id="c"></div>
+    </div>
+</body>
+
+</html>
