@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @keyframes radial-gradient-animation {
+      0% {
+        background: radial-gradient(circle at center, #ff0000, #0000ff);
+      }
+      50% {
+        background: radial-gradient(circle at center, #00ff00, #ff00ff);
+      }
+      100% {
+        background: radial-gradient(circle at center, #ff0000, #0000ff);
+      }
+    }
+   .animated-ellipse {
+      width: 200px;
+      height: 100px;
+      border-radius: 50%;
+      animation: radial-gradient-animation 5s infinite;
+    }
+
+ 
+   .resume-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 20px;
+    }
+
+    /* 基本信息样式 */
+   .basic-info {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    /* 工作经历样式 */
+   .work-experience {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    /* 教育经历样式 */
+   .education-experience {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    /* 社会关系样式 */
+   .social-relationships {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    /* 自我评价样式 */
+   .self-evaluation {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #ccc;
+    }
+  </style>
+  <title>Resume with CSS Grid</title>
+</head>
+
+<body>
+  <div class="animated-ellipse"></div>
+  <div class="resume-container">
+    <img src="photo.jpg" alt="逯翔玮的个人照片" width="200" height="200">
+  </div>
+    <div class="basic-info">
+      <h2>基本信息</h2>
+      <table>
+        <tr>
+          <th>姓名</th>
+          <td>逯翔玮</td>
+        </tr>
+        <tr>
+          <th>年龄</th>
+          <td>18</td>
+        </tr>
+        <tr>
+          <th>性别</th>
+          <td>男</td>
+        </tr>
+        <tr>
+          <th>地址</th>
+          <td>浙江 宁波</td>
+        </tr>
+        <tr>
+          <th>电话</th>
+          <td>135-0000-0000</td>
+        </tr>
+        <tr>
+          <th>婚姻状况</th>
+          <td>已婚</td>
+        </tr>
+        <tr>
+          <th>求职意向</th>
+          <td>区域经理</td>
+        </tr>
+      </table>
+    </div>
+    <div class="work-experience">
+      <h2>工作经历</h2>
+      <table>
+        <tr>
+          <th>职位</th>
+          <th>工作职责</th>
+        </tr>
+        <tr>
+          <td>社区服务站慢病管理员</td>
+          <td>
+            <ul>
+              <li>负责为客户进行体检并解读体检结果。</li>
+              <li>对患者进行糖尿病、高血压检测工作。</li>
+              <li>评估客户的健康状况和所患疾病危险性，进行健康咨询与指导。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>药店店员（工作经验四年）</td>
+          <td>
+            <ul>
+              <li>负责接待顾客的咨询，了解顾客的需求并达成销售。</li>
+              <li>负责做好货品销售记录、盘点、账目核对等工作，按规定完成各项销售统计工作。</li>
+              <li>做好所负责区域的卫生清洁工作。</li>
+              <li>了解公司下达的销售任务指标，进行销售任务的分解。</li>
+              <li>对商品的价格、产地等做到了如指掌。</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="education-experience">
+      <h2>教育经历</h2>
+      <table>
+        <tr>
+          <th>学历</th>
+          <th>说明</th>
+        </tr>
+        <tr>
+          <td>本科学历</td>
+          <td>本人学历不高，正在就读成人高考。</td>
+        </tr>
+      </table>
+    </div>
+    <div class="social-relationships">
+      <h2>社会关系</h2>
+      <table>
+        <tr>
+          <th>关系描述</th>
+          <th>具体情况</th>
+        </tr>
+        <tr>
+          <td>家人</td>
+          <td>经商。</td>
+        </tr>
+        <tr>
+          <td>对象</td>
+          <td>与很多老板是朋友关系，具有一定的社会关系。</td>
+        </tr>
+      </table>
+    </div>
+    <div class="self-evaluation">
+      <h2>自我评价</h2>
+      <p>对于市场具有一定的视察诊断能力，了解当地市场人流量、竞争情况、消费喜好、消费者分布情况。</p>
+      <p>对于产品、人员、价格等具有一定的管理能力。</p>
+      <p>具有较强的沟通、协调、组织、团队合作能力。</p>
+      <p>具有一定的会签报、分析、洞察和规划布局等能力。</p>
+      <p>能快速了解公司营销方案并执行等能力。</p>
+    </div>
+  </div>
+</body>
+
+</html>
