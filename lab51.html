@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Solver</title>
+</head>
+
+<body>
+    <script>
+        // （1）调用prompt函数三次，从用户那里获取系数a、b和c
+        const a = parseFloat(prompt("请输入系数a的值："));
+        const b = parseFloat(prompt("请输入系数b的值："));
+        const c = parseFloat(prompt("请输入系数c的值："));
+
+        // （3）计算delta = b * b - 4 * a * c
+        const delta = b * b - 4 * a * c;
+
+        // （4）计算x1 = (-b + Math.sqrt(delta)) / (2 * a)；x2 = (-b - Math.sqrt(delta)) / (2 * a)
+        const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+        // （5）使用alert函数告知用户x1和x2的值
+        alert(`方程的解为：x1 = ${x1}, x2 = ${x2}`);
+
+        // （6）使用console.log函数向用户输出相同的结果
+        console.log(`方程的解为：x1 = ${x1}, x2 = ${x2}`);
+    </script>
+</body>
+
+</html>
