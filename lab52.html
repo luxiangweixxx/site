@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <style>
+    @keyframes fly {
+      from {
+        top: 400px;
+      }
+      to {
+        top: 0px;
+      }
+    }
+
+   .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      position: absolute;
+    }
+  </style>
+  <script>
+    // 创建气球的函数
+    function makeballoon() {
+      let b = document.createElement('div');
+      b.className = 'circle';
+      // 随机初始颜色
+      b.style.backgroundColor = getRandomColor();
+      // 随机初始位置
+      b.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+      b.style.top = 400 + 'px';
+      b.style.animation = 'fly 10s 1';
+      document.body.appendChild(b);
+      return b;
+    }
+
+    // 生成随机颜色的函数
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // 创建10个气球
+    const balloons = [];
+    for (let i = 0; i < 10; i++) {
+      balloons.push(makeballoon());
+    }
+
+    // 定时改变气球的大小和颜色
+    setInterval(() => {
+      balloons.forEach((balloon) => {
+        // 随机改变大小
+        const size = Math.random() * 50 + 50;
+        balloon.style.width = size + 'px';
+        balloon.style.height = size + 'px';
+        // 随机改变颜色
+        balloon.style.backgroundColor = getRandomColor();
+      });
+    }, 1000);
+  </script>
+</body>
+
+</html>
