@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #87CEEB;
+        }
+
+       .balloon {
+            position: fixed;
+            width: 200px; 
+            height: 200px; 
+            border-radius: 50%;
+            bottom: -200px; 
+            animation: float 5s linear infinite; 
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh) scale(0.9);
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.8);
+                opacity: 0.4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let positions = [];
+        const MIN_DISTANCE = 200; 
+
+        function getValidPosition() {
+            const maxAttempts = 100;
+            for (let attempt = 0; attempt < maxAttempts; attempt++) {
+                const newPos = Math.random() * (window.innerWidth - 200);
+
+                const isValid = positions.every(pos => {
+                    return Math.abs(pos - newPos) > MIN_DISTANCE;
+                });
+
+                if (isValid || positions.length === 0) {
+                    positions.push(newPos);
+                    return newPos;
+                }
+            }
+            return Math.random() * (window.innerWidth - 200);
+        }
+
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+
+            const hue = Math.random() * 360;
+            balloon.style.backgroundColor = `hsl(${hue}, 85%, 65%)`;
+
+            balloon.style.left = getValidPosition() + 'px';
+
+            balloon.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+
+            document.body.appendChild(balloon);
+            balloon.addEventListener('animationend', () => {
+                const index = positions.indexOf(parseFloat(balloon.style.left));
+                if (index > -1) {
+                    positions.splice(index, 1);
+                }
+                balloon.remove();
+            });
+        }
+
+
+        setInterval(() => {
+            if (positions.length < 3) { 
+                createBalloon();
+            }
+        }, 5000);
+
+        window.addEventListener('resize', () => {
+            positions = [];
+        });
+    </script>
+</body>
+
+</html>
