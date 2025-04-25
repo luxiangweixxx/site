@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>简化气球动画</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .balloon {
+            position: absolute;
+            border-radius: 50%;
+            animation: rise 8s linear; /* 先不写forwards，后面用js控制结束 */
+        }
+
+        @keyframes rise {
+            to {
+                transform: translateY(-100vh) scale(1.2); /* 上升时放大1.2倍 */
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // 创建气球的基本函数
+    function createBalloon() {
+        const balloon = document.createElement('div');
+        balloon.className = 'balloon';
+        
+        // 随机属性
+        const size = Math.random() * 50 + 20;  // 20-70px
+        const colors = ['red', 'orange', 'yellow', 'green', 'black', 'blue', 'purple']; // 限制颜色
+        
+        // 应用样式
+        balloon.style.width = size + 'px';
+        balloon.style.height = size + 'px';
+        balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        balloon.style.left = Math.random() * 100 + 'vw';
+        balloon.style.bottom = -size + 'px';
+
+        // 动画时长
+        const duration = Math.random() * 5 + 3; // 3-8秒
+        balloon.style.animationDuration = duration + 's';
+
+        // 动画结束后处理
+        balloon.addEventListener('animationend', () => {
+            balloon.remove(); // 移除气球，实现逐个爆破
+        });
+
+        document.body.appendChild(balloon);
+    }
+
+    // 创建少量气球（示例创建30个）
+    for (let i = 0; i < 30; i++) {
+        setTimeout(createBalloon, i * 300); // 每300ms创建一个
+    }
+</script>
+
+</body>
+</html>

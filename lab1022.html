@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Chai</td>
+        <td>Boyuan</td>
+      </tr>
+      <tr>
+        <td>Chen</td>
+        <td>Haohao</td>
+      </tr>
+      <!-- 此处省略其他行，可将实际表格内容完整复制过来 -->
+    </tbody>
+  </table>
+
+  <script>
+    window.onload = sortByLastName;
+
+    let sortByLastName = function () {
+      const tbl = document.getElementById('tbl');
+      const rows = Array.from(tbl.rows).slice(1); // 跳过表头行
+
+      rows.sort((a, b) => {
+        const lastNameA = a.cells[0].textContent;
+        const lastNameB = b.cells[0].textContent;
+        if (lastNameA < lastNameB) {
+          return -1;
+        }
+        if (lastNameA > lastNameB) {
+          return 1;
+        }
+        return 0;
+      });
+
+      const tbody = tbl.querySelector('tbody');
+      tbody.innerHTML = '';
+      rows.forEach(row => {
+        tbody.appendChild(row);
+      });
+    };
+  </script>
+
+</body>
+
+</html>
