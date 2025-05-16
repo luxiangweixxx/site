@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <input type="file" id="csvFileInput">
+
+  <script>
+    document.getElementById('csvFileInput').addEventListener('change', function (e) {
+      if (e.target.files && e.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const csvData = event.target.result;
+          const lines = csvData.split('\n');
+          const table = document.createElement('table');
+          for (let i = 0; i < lines.length; i++) {
+            const row = document.createElement('tr');
+            const cells = lines[i].split(',');
+            for (let j = 0; j < cells.length; j++) {
+              const cell = document.createElement('td');
+              cell.textContent = cells[j];
+              row.appendChild(cell);
+            }
+            table.appendChild(row);
+          }
+          document.body.appendChild(table);
+        };
+        reader.readAsText(e.target.files[0]);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
